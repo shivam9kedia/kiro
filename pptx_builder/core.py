@@ -1,23 +1,21 @@
 """Core PPTX file builder using zipfile + XML."""
 import zipfile
-import os
 
 EMU_PER_INCH = 914400
-SLIDE_WIDTH = 12192000  # 10 inches * EMU (widescreen 16:9 actually uses custom)
-SLIDE_HEIGHT = 6858000  # 7.5 inches * EMU
+SLIDE_WIDTH = 12192000  # widescreen
+SLIDE_HEIGHT = 6858000
 
 
 def inches(val):
     return int(val * EMU_PER_INCH)
 
 
-def pt(val):
-    """Points to EMU for font sizes (hundredths of a point)."""
-    return int(val * 100)
-
-
-def create_content_types():
-    return '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+def create_content_types(num_slides):
+    overrides = "\n".join([
+        f'  <Override PartName="/ppt/slides/slide{i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>'
+        for i in range(num_slides)
+    ])
+    return f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
   <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
   <Default Extension="xml" ContentType="application/xml"/>
@@ -25,7 +23,7 @@ def create_content_types():
   <Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"/>
   <Override PartName="/ppt/slideLayouts/slideLayout1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml"/>
   <Override PartName="/ppt/theme/theme1.xml" ContentType="application/vnd.openxmlformats-officedocument.theme+xml"/>
-  {slide_overrides}
+{overrides}
 </Types>'''
 
 
@@ -75,13 +73,13 @@ def create_theme():
       <a:lt1><a:srgbClr val="FFFFFF"/></a:lt1>
       <a:dk2><a:srgbClr val="2C3E50"/></a:dk2>
       <a:lt2><a:srgbClr val="F8F9FA"/></a:lt2>
-      <a:accent1><a:srgbClr val="E74C3C"/></a:accent1>
-      <a:accent2><a:srgbClr val="3498DB"/></a:accent2>
+      <a:accent1><a:srgbClr val="C41E3A"/></a:accent1>
+      <a:accent2><a:srgbClr val="1B2A4A"/></a:accent2>
       <a:accent3><a:srgbClr val="2ECC71"/></a:accent3>
       <a:accent4><a:srgbClr val="F39C12"/></a:accent4>
-      <a:accent5><a:srgbClr val="9B59B6"/></a:accent5>
+      <a:accent5><a:srgbClr val="3498DB"/></a:accent5>
       <a:accent6><a:srgbClr val="1ABC9C"/></a:accent6>
-      <a:hlink><a:srgbClr val="3498DB"/></a:hlink>
+      <a:hlink><a:srgbClr val="C41E3A"/></a:hlink>
       <a:folHlink><a:srgbClr val="9B59B6"/></a:folHlink>
     </a:clrScheme>
     <a:fontScheme name="Apollo">
@@ -103,16 +101,9 @@ def create_slide_master():
 <p:sldMaster xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
   xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
   xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
-  <p:cSld>
-    <p:spTree>
-      <p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>
-      <p:grpSpPr/>
-    </p:spTree>
-  </p:cSld>
+  <p:cSld><p:spTree><p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr/></p:spTree></p:cSld>
   <p:clrMap bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
-  <p:sldLayoutIdLst>
-    <p:sldLayoutId id="2147483649" r:id="rId1"/>
-  </p:sldLayoutIdLst>
+  <p:sldLayoutIdLst><p:sldLayoutId id="2147483649" r:id="rId1"/></p:sldLayoutIdLst>
 </p:sldMaster>'''
 
 
@@ -129,12 +120,7 @@ def create_slide_layout():
 <p:sldLayout xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
   xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
   xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" type="blank">
-  <p:cSld>
-    <p:spTree>
-      <p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>
-      <p:grpSpPr/>
-    </p:spTree>
-  </p:cSld>
+  <p:cSld><p:spTree><p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr/></p:spTree></p:cSld>
 </p:sldLayout>'''
 
 
@@ -150,3 +136,22 @@ def create_slide_rels():
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
   <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout" Target="../slideLayouts/slideLayout1.xml"/>
 </Relationships>'''
+
+
+def build_pptx(slides, output_file):
+    """Build a complete PPTX file from a list of slide XML strings."""
+    num_slides = len(slides)
+    with zipfile.ZipFile(output_file, 'w', zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr("[Content_Types].xml", create_content_types(num_slides))
+        zf.writestr("_rels/.rels", create_rels())
+        zf.writestr("ppt/presentation.xml", create_presentation(num_slides))
+        zf.writestr("ppt/_rels/presentation.xml.rels", create_presentation_rels(num_slides))
+        zf.writestr("ppt/theme/theme1.xml", create_theme())
+        zf.writestr("ppt/slideMasters/slideMaster1.xml", create_slide_master())
+        zf.writestr("ppt/slideMasters/_rels/slideMaster1.xml.rels", create_slide_master_rels())
+        zf.writestr("ppt/slideLayouts/slideLayout1.xml", create_slide_layout())
+        zf.writestr("ppt/slideLayouts/_rels/slideLayout1.xml.rels", create_slide_layout_rels())
+        for i, slide_xml in enumerate(slides):
+            zf.writestr(f"ppt/slides/slide{i+1}.xml", slide_xml)
+            zf.writestr(f"ppt/slides/_rels/slide{i+1}.xml.rels", create_slide_rels())
+    print(f"SUCCESS: Created {output_file} with {num_slides} slides")

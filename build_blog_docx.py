@@ -21,6 +21,11 @@ build_docx.CORE_XML = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 if __name__ == '__main__':
     here = os.path.dirname(os.path.abspath(__file__))
-    md = os.path.join(here, 'WellnessWater-25-Pillar-Blog-Content.md')
-    out = os.path.join(here, 'WellnessWater-25-Pillar-Blog-Content.docx')
-    build_docx.build_docx(md, out)
+    targets = [
+        ('WellnessWater-25-Pillar-Blog-Content.md',
+         'WellnessWater-25-Pillar-Blog-Content.docx'),
+        ('WellnessWater-Citations-and-Infographic-Briefs.md',
+         'WellnessWater-Citations-and-Infographic-Briefs.docx'),
+    ]
+    for md_name, out_name in targets:
+        build_docx.build_docx(os.path.join(here, md_name), os.path.join(here, out_name))

@@ -17,18 +17,33 @@ R_NS = 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relations
 
 # ----------------------------- Inline run rendering -----------------------------
 
+_DOC_HYPERLINKS = []  # accumulates (rId, url) during a single document build
+
+
 def render_runs(text, default_rpr=""):
     """Render markdown inline formatting into Word XML runs.
-    Supports **bold**, *italic*, `code`, and plain text.
+    Supports [text](url) links, **bold**, *italic*, `code`, and plain text.
     """
     out = []
-    # Tokenize
-    pattern = re.compile(r'(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)')
+    # Tokenize. Link pattern MUST come first so it wins over * / ` patterns.
+    pattern = re.compile(r'(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)')
+    link_re = re.compile(r'^\[([^\]]+)\]\(([^)]+)\)$')
     parts = pattern.split(text)
     for part in parts:
         if not part:
             continue
-        if part.startswith('**') and part.endswith('**'):
+        link_m = link_re.match(part)
+        if link_m:
+            link_text, url = link_m.group(1), link_m.group(2)
+            rid = f'rIdHl{len(_DOC_HYPERLINKS) + 1}'
+            _DOC_HYPERLINKS.append((rid, url))
+            out.append(
+                f'<w:hyperlink r:id="{rid}">'
+                f'<w:r><w:rPr>{default_rpr}<w:color w:val="0563C1"/><w:u w:val="single"/></w:rPr>'
+                f'<w:t xml:space="preserve">{escape(link_text)}</w:t></w:r>'
+                f'</w:hyperlink>'
+            )
+        elif part.startswith('**') and part.endswith('**'):
             content = part[2:-2]
             out.append(f'<w:r><w:rPr>{default_rpr}<w:b/></w:rPr><w:t xml:space="preserve">{escape(content)}</w:t></w:r>')
         elif part.startswith('*') and part.endswith('*') and len(part) > 2:
@@ -482,22 +497,41 @@ def build_document_xml(md_text):
 
 
 def build_docx(md_path, out_path):
+    global _DOC_HYPERLINKS
+    _DOC_HYPERLINKS = []  # reset per document
+
     with open(md_path, 'r', encoding='utf-8') as f:
         md_text = f.read()
 
-    document_xml = build_document_xml(md_text)
+    document_xml = build_document_xml(md_text)  # populates _DOC_HYPERLINKS
+
+    # Build document rels dynamically: styles + numbering + one per hyperlink.
+    hyperlink_rels = ''.join(
+        f'<Relationship Id="{rid}" '
+        f'Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" '
+        f'Target="{escape(url)}" TargetMode="External"/>'
+        for rid, url in _DOC_HYPERLINKS
+    )
+    doc_rels = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>'
+        '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>'
+        f'{hyperlink_rels}'
+        '</Relationships>'
+    )
 
     with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as z:
         z.writestr('[Content_Types].xml', CONTENT_TYPES)
         z.writestr('_rels/.rels', ROOT_RELS)
-        z.writestr('word/_rels/document.xml.rels', DOC_RELS)
+        z.writestr('word/_rels/document.xml.rels', doc_rels)
         z.writestr('word/document.xml', document_xml)
         z.writestr('word/styles.xml', STYLES_XML)
         z.writestr('word/numbering.xml', NUMBERING_XML)
         z.writestr('docProps/core.xml', CORE_XML)
         z.writestr('docProps/app.xml', APP_XML)
 
-    print(f'Wrote {out_path} ({os.path.getsize(out_path):,} bytes)')
+    print(f'Wrote {out_path} ({os.path.getsize(out_path):,} bytes, {len(_DOC_HYPERLINKS)} hyperlinks)')
 
 
 if __name__ == '__main__':

@@ -26,6 +26,8 @@ if __name__ == '__main__':
          'WellnessWater-25-Pillar-Blog-Content.docx'),
         ('WellnessWater-Citations-and-Infographic-Briefs.md',
          'WellnessWater-Citations-and-Infographic-Briefs.docx'),
+        ('WellnessWater-Publishing-Calendar-and-Checklist.md',
+         'WellnessWater-Publishing-Calendar-and-Checklist.docx'),
     ]
     for md_name, out_name in targets:
         build_docx.build_docx(os.path.join(here, md_name), os.path.join(here, out_name))

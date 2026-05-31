@@ -95,7 +95,7 @@ The word researchers keep returning to is **cumulative**. The concern isn't one 
 
 ## The 2024 EPA PFAS Limits, Explained Simply
 
-For most of PFAS history there was no enforceable national limit for them in drinking water. That changed. In 2024, the EPA finalized the first-ever national drinking water standards for PFAS, setting enforceable limits for several compounds — including PFOA and PFOS — at just **4 parts per trillion**. To picture how small that is: one part per trillion is roughly a single drop in 20 Olympic-sized swimming pools. The fact that regulators chose a number that low tells you how seriously the science is being taken.
+For most of PFAS history there was no enforceable national limit for them in drinking water. That changed. In 2024, the EPA finalized [the first-ever national drinking water standards for PFAS](https://www.nsf.org/consumer-resources/articles/pfas-drinking-water), setting enforceable limits for several compounds — including PFOA and PFOS — at just **4 parts per trillion**. To picture how small that is: one part per trillion is roughly a single drop in 20 Olympic-sized swimming pools. The fact that regulators chose a number that low tells you how seriously the science is being taken.
 
 Utilities now have a multi-year window to test, monitor, and reduce PFAS. That's real progress — but "your utility is working on it" and "your water is clean today" are not the same sentence.
 
@@ -170,7 +170,7 @@ Here's the thing — that report contains genuinely useful information about wha
 
 ## What Is a Consumer Confidence Report?
 
-The CCR is mandated by the Safe Drinking Water Act. Every community water system in the U.S. must publish one each year, telling customers where their water comes from, what was detected in it, and how those levels compare to federal limits. It's a transparency tool — and a good one. But it was written by engineers and regulators, which is why it reads like a tax form.
+The CCR is [mandated by the Safe Drinking Water Act](https://www.epa.gov/ccr). Every community water system in the U.S. must publish one each year, telling customers where their water comes from, what was detected in it, and how those levels compare to federal limits. It's a transparency tool — and a good one. But it was written by engineers and regulators, which is why it reads like a tax form.
 
 Private well owners, note: you won't get a CCR at all, because the EPA doesn't regulate private wells. If that's you, testing is entirely on your shoulders.
 
@@ -241,7 +241,7 @@ It means a contaminant exceeded its legal limit during the reporting period — 
 
 If your water comes from a private well, you've traded a monthly utility bill for something most homeowners never think about until there's a problem: **total responsibility for your own water safety.** No agency tests your well. No annual report lands in your inbox. The roughly 13 million American households on private wells are, quite literally, their own water department.
 
-More than 15 million U.S. households rely on private wells (CDC) — and that's not a reason for anxiety, it's a reason for a checklist. Here's exactly what to test for and how often.
+[More than 15 million U.S. households rely on private wells](https://www.cdc.gov/healthywater/drinking/private/wells/) (CDC) — and that's not a reason for anxiety, it's a reason for a checklist. Here's exactly what to test for and how often.
 
 ## Key Takeaways
 - The EPA does not regulate private wells; testing is the owner's responsibility.
@@ -350,11 +350,11 @@ It's easy to feel overwhelmed by the headlines. So let's do something different:
 
 ## What Are Microplastics and Nanoplastics?
 
-Microplastics are plastic particles smaller than five millimeters — roughly the size of a sesame seed down to invisible. **Nanoplastics** are smaller still, measured in billionths of a meter, small enough to potentially cross biological barriers. They come from larger plastics breaking down, from synthetic clothing fibers, from tire wear, and from the manufacturing of plastic products.
+[Microplastics are plastic particles smaller than five millimeters](https://oceanservice.noaa.gov/facts/microplastics.html) — roughly the size of a sesame seed down to invisible. **Nanoplastics** are smaller still, measured in billionths of a meter, small enough to potentially cross biological barriers. They come from larger plastics breaking down, from synthetic clothing fibers, from tire wear, and from the manufacturing of plastic products.
 
 ## How They Get Into Tap — and Especially Bottled — Water
 
-In tap water, microplastics enter through environmental contamination of source water and, in some cases, from plastic infrastructure. But here's the counterintuitive finding that surprised researchers: **bottled water often contains far more plastic particles than tap water.** A widely reported 2024 study using advanced detection found bottled water contained hundreds of thousands of nanoplastic particles per liter — many times more than previous estimates. The plastic bottle and cap themselves shed particles, especially with heat and repeated handling.
+In tap water, microplastics enter through environmental contamination of source water and, in some cases, from plastic infrastructure. But here's the counterintuitive finding that surprised researchers: **bottled water often contains far more plastic particles than tap water.** [A widely reported 2024 study](https://lamont.columbia.edu/news/bottled-water-can-contain-hundreds-thousands-previously-uncounted-tiny-plastic-bits-study) using advanced detection found bottled water contained hundreds of thousands of nanoplastic particles per liter — many times more than previous estimates. The plastic bottle and cap themselves shed particles, especially with heat and repeated handling.
 
 ## What the Research Does — and Doesn't — Prove
 
@@ -421,7 +421,7 @@ Two main pathways. **Natural geology** releases metals like arsenic and chromium
 
 ## Arsenic — The Odorless, Tasteless Risk
 
-Arsenic occurs naturally in many U.S. aquifers, particularly in parts of the West, Midwest, and Northeast. It has no taste, color, or smell, so well owners can be exposed for years unknowingly. The federal limit is 10 parts per billion, but the health goal is effectively zero, since long-term exposure is associated with serious health concerns. Reverse osmosis and certain specialty adsorptive media are the standard removal approaches.
+Arsenic occurs naturally in many U.S. aquifers, particularly in parts of the West, Midwest, and Northeast. It has no taste, color, or smell, so well owners can be exposed for years unknowingly. [The federal limit is 10 parts per billion](https://www.epa.gov/dwreginfo/drinking-water-arsenic-rule-history), but the health goal is effectively zero, since long-term exposure is associated with serious health concerns. Reverse osmosis and certain specialty adsorptive media are the standard removal approaches.
 
 ## Chromium-6 — The "Erin Brockovich" Contaminant
 
@@ -433,7 +433,7 @@ Nitrates are the classic agricultural contaminant, washing in from fertilizer an
 
 ## Lead — There Is No Safe Level
 
-Lead rarely originates at the water source. It enters as water travels through old lead service lines, solder, and brass fixtures — which is why a clean utility report doesn't guarantee lead-free water at *your* tap. Health authorities recognize no safe level of lead exposure, and children are most vulnerable. Reverse osmosis and filters certified specifically for lead reduction are the dependable solutions.
+Lead rarely originates at the water source. It enters as water travels through old lead service lines, solder, and brass fixtures — which is why a clean utility report doesn't guarantee lead-free water at *your* tap. [Health authorities recognize no safe level of lead exposure](https://www.epa.gov/lead/lead-drinking-water), and children are most vulnerable. Reverse osmosis and filters certified specifically for lead reduction are the dependable solutions.
 
 ## The Filtration That Removes Each One
 
@@ -475,7 +475,7 @@ Through a certified lab panel or a professional in-home water test, since neithe
 **LSI / Semantic Keywords:** calcium carbonate, grains per gallon, mg/L hardness, limestone aquifers, soft vs hard water, USGS hardness data
 **Image Alt Text:** Color-graded map of the United States showing water hardness by state from soft to very hard with a grains-per-gallon legend
 
-If your dishes come out of the dishwasher spotted, your shampoo won't lather, and there's a chalky white crust creeping around your faucets, you don't have a cleaning problem. You have a **hard water** problem — and you're in very good company. An estimated 85% of American homes have hard water to some degree.
+If your dishes come out of the dishwasher spotted, your shampoo won't lather, and there's a chalky white crust creeping around your faucets, you don't have a cleaning problem. You have a **hard water** problem — and you're in very good company. [An estimated 85% of American homes have hard water](https://www.usgs.gov/faqs/do-you-have-information-about-water-hardness-united-states) to some degree.
 
 But "hard water" isn't one-size-fits-all. Where you live largely determines how hard your water is, and that changes everything about how you should treat it. Let's map it out.
 
@@ -1331,7 +1331,7 @@ Infants drink a large amount of water relative to their tiny body weight — esp
 
 ## The Contaminants Parents Worry About Most
 
-- **Nitrates** — the single biggest water concern for infants. High nitrate levels (common in agricultural and well-water areas) can interfere with an infant's blood oxygen, a condition known as "blue baby syndrome." Never mix formula with untested well water in farm country.
+- **Nitrates** — the single biggest water concern for infants. [High nitrate levels](https://www.ewg.org/research/pouring-it/health-effects-nitrate-exposure) (common in agricultural and well-water areas) can interfere with an infant's blood oxygen, a condition known as "blue baby syndrome." Never mix formula with untested well water in farm country.
 - **Lead** — no level is considered safe, and children are especially vulnerable to its developmental effects. Lead typically enters at the tap from old plumbing.
 - **Fluoride** — added by many municipalities for dental health. Some parents choose to limit fluoride in formula water; discuss your preference with your pediatrician.
 
@@ -1392,7 +1392,7 @@ This is where the gap is staggering. Bottled water often costs roughly a dollar 
 
 ## The Health Comparison
 
-Many assume bottled water is more tightly regulated and purer than tap. In reality, bottled water is regulated differently — and not always more strictly — and a meaningful share of bottled water is simply filtered municipal tap water in a plastic bottle. More striking, recent research using advanced detection found that **bottled water can contain far more microplastic and nanoplastic particles than tap water**, much of it shed from the bottle and cap themselves, especially with heat and time. So the "purity premium" you think you're buying may come with a plastic surprise.
+Many assume bottled water is more tightly regulated and purer than tap. In reality, bottled water is regulated differently — and not always more strictly — and a meaningful share of bottled water is simply filtered municipal tap water in a plastic bottle. More striking, [recent research using advanced detection](https://lamont.columbia.edu/news/bottled-water-can-contain-hundreds-thousands-previously-uncounted-tiny-plastic-bits-study) found that **bottled water can contain far more microplastic and nanoplastic particles than tap water**, much of it shed from the bottle and cap themselves, especially with heat and time. So the "purity premium" you think you're buying may come with a plastic surprise.
 
 A good home filter, by contrast, lets you target the specific contaminants in *your* water and verify the result.
 
@@ -1524,7 +1524,7 @@ Municipal water is treated with chlorine or chloramine, and even at safe, low le
 
 ## The Mineral Balance Sweet Spot
 
-Here's the nuance: you don't actually want *zero* minerals for coffee. Minerals like calcium and magnesium help "extract" flavor compounds from the grounds, which is why completely flat, mineral-free water can make coffee taste hollow. The goal is **balance** — enough minerals to extract well, but not so many (hard water) that they mute flavor and build scale. Specialty coffee organizations even publish ideal mineral ranges for brewing. A filtration setup that delivers balanced, chlorine-free water hits that sweet spot.
+Here's the nuance: you don't actually want *zero* minerals for coffee. Minerals like calcium and magnesium help "extract" flavor compounds from the grounds, which is why completely flat, mineral-free water can make coffee taste hollow. The goal is **balance** — enough minerals to extract well, but not so many (hard water) that they mute flavor and build scale. [Specialty coffee organizations even publish ideal mineral ranges](https://sca.coffee/) for brewing. A filtration setup that delivers balanced, chlorine-free water hits that sweet spot.
 
 ## Hard Water Is Killing Your Coffee Maker
 
@@ -1689,7 +1689,7 @@ When a health claim matters to you, insist on genuine certification, not lookali
 
 ## How to Verify a Certification Yourself
 
-You don't have to take anyone's word for it. Accredited certifiers (NSF and others) maintain public databases where you can search a product or company and see exactly what it's certified to reduce. If a product is truly certified, you'll find it listed with the specific standards and contaminant claims. If you can't find it, that absence is itself an answer.
+You don't have to take anyone's word for it. [Accredited certifiers (NSF and others)](https://www.nsf.org/) maintain public databases where you can search a product or company and see exactly what it's certified to reduce. If a product is truly certified, you'll find it listed with the specific standards and contaminant claims. If you can't find it, that absence is itself an answer.
 
 ## What to Look For on a Performance Data Sheet
 

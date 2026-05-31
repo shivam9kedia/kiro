@@ -32,6 +32,8 @@ if __name__ == '__main__':
          'WellnessWater-15-Blog-Articles.docx'),
         ('WellnessWater-15-Strategic-Blog-Articles.md',
          'WellnessWater-15-Strategic-Blog-Articles.docx'),
+        ('WellnessWater-Social-Media-Creative-Kit.md',
+         'WellnessWater-Social-Media-Creative-Kit.docx'),
     ]
     for md_name, out_name in targets:
         build_docx.build_docx(os.path.join(here, md_name), os.path.join(here, out_name))
